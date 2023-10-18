@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="SCRIB.js"></script>
+    <h1>Programas en JavaScript - Estructuras de Control:</h1>
+
+    <h2> Número par o impar</h2>
+    <input type="number" id="inputParImpar">
+    <button onclick="verificarParImpar()">Verificar</button>
+    <p id="resultadoParImpar"></p>
+
+    <h2> Positivo, negativo o cero</h2>
+    <input type="number" id="inputPosNegCero">
+    <button onclick="verificarPosNegCero()">Verificar</button>
+    <p id="resultadoPosNegCero"></p>
+
+    <h2> Números pares hasta N</h2>
+    <input type="number" id="inputNumerosPares">
+    <button onclick="mostrarNumerosPares()">Mostrar</button>
+    <p id="resultadoNumerosPares"></p>
+
+
+
+    <script>
+        function verificarParImpar() {
+            const num = parseInt(document.getElementById("inputParImpar").value);
+            esParOImpar(num);
+            document.getElementById("resultadoParImpar").textContent = num % 2 === 0 ? "Es par" : "Es impar";
+        }
+
+        function verificarPosNegCero() {
+            const num = parseInt(document.getElementById("inputPosNegCero").value);
+            determinarPositivoNegativoCero(num);
+            document.getElementById("resultadoPosNegCero").textContent = num > 0 ? "Positivo" : num < 0 ? "Negativo" : "Cero";
+        }
+
+        function mostrarNumerosPares() {
+            const n = parseInt(document.getElementById("inputNumerosPares").value);
+            mostrarNumerosParesHastaN(n);
+            const numerosPares = [];
+            for (let i = 2; i <= n; i += 2) {
+                numerosPares.push(i);
+            }
+            document.getElementById("resultadoNumerosPares").textContent = numerosPares.join(", ");
+        }
+    </script>
+
+
+
+    <h1>Ejercicios sobre Funciones</h1>
+
+    <h2> Suma de dos números</h2>
+    <label>Ingresa el primer número: <input type="number" id="num1"></label>
+    <label>Ingresa el segundo número: <input type="number" id="num2"></label>
+    <button onclick="calcularSuma()">Calcular Suma</button>
+    <p id="resultadoSuma"></p>
+
+    <h2> Suma de elementos en un arreglo</h2>
+    <label>Ingresa un arreglo de números separados por comas: <input type="text" id="arrNumeros"></label>
+    <button onclick="calcularSumaArreglo()">Calcular Suma</button>
+    <p id="resultadoSumaArreglo"></p>
+
+    <h2> Verificar palíndromo</h2>
+    <label>Ingresa una cadena de texto: <input type="text" id="cadenaPalindromo"></label>
+    <button onclick="verificarPalindromo()">Verificar</button>
+    <p id="resultadoPalindromo"></p>
+
+    <script src="SCRIB.js"></script>
+    <script>
+        function calcularSuma() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const resultado = sumaDosNumeros(num1, num2);
+            document.getElementById("resultadoSuma").textContent = "La suma es: " + resultado;
+        }
+
+        function calcularSumaArreglo() {
+            const inputArray = document.getElementById("arrNumeros").value;
+            const numeros = inputArray.split(',').map(Number);
+            const resultado = sumaElementosArreglo(numeros);
+            document.getElementById("resultadoSumaArreglo").textContent = "La suma de los elementos es: " + resultado;
+        }
+
+        function verificarPalindromo() {
+            const cadena = document.getElementById("cadenaPalindromo").value;
+            const esPalin = esPalindromo(cadena);
+            document.getElementById("resultadoPalindromo").textContent = esPalin ? "Es un palíndromo" : "No es un palíndromo";
+        }
+    </script>
+
+    <h1>Ejercicios sobre Objetos y Arrays</h1>
+
+    <h2>Información de Persona</h2>
+    <button onclick="informacionPersona()">Mostrar Información de Persona</button>
+    <p id="resultadoPersona"></p>
+
+    <h2>Información de Productos</h2>
+    <button onclick="informacionProductos()">Mostrar Información de Productos</button>
+    <p id="resultadoProductos"></p>
+
+    <h2>Ordenar Números Ascendente</h2>
+    <label>Ingresa un arreglo de números separados por comas: <input type="text" id="numerosAOrdenar"></label>
+    <button onclick="ordenarNumeros()">Ordenar Números</button>
+    <p id="resultadoNumerosOrdenados"></p>
+
+    <script src="SCRIB.js"></script>
+
+
+
+</body>
+
+</html>
